@@ -1,0 +1,11 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:latest
+    container_name: TestAPI
+    environment:
+      POSTGRES_USER: gaguirrec
+      POSTGRES_PASSWORD: gaguirrec
+      POSTGRES_DB: TestAPIDB
+    ports:
+      - "5432:5432"
