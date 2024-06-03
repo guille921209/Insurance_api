@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Usuarios</title>
+</head>
+<body>
+    <h1>Consulta de Usuarios</h1>
+    <form action="/query_user" method="post">
+        <label for="query_id">Ingrese el ID del cliente:</label>
+        <input type="text" id="query_id" name="query_id" required>
+        <button type="submit">Consultar</button>
+    </form>
+    <div id="user_info">
+        {% if user_info %}
+            <h2>Información del Usuario</h2>
+            <p><strong>Amount insured:</strong> {{ user_info.amount_insured }}</p>
+            <p><strong>email:</strong> {{ user_info.email }}</p>
+            <p><strong>Inception date:</strong> {{ user_info.inception_date }}</p>
+            <p><strong>Installment payment:</strong> {{ user_info.installment_payment }}</p>
+            {% endif %}
+    </div>
+</body>
+</html>

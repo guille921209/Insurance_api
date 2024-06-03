@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda de Usuario por Número de Póliza</title>
+</head>
+<body>
+    <h1>Búsqueda de Usuario por Número de Póliza</h1>
+    <form action="/search_user_by_policy" method="post">
+        <label for="policy_id">Ingrese el ID de la póliza:</label>
+        <input type="text" id="policy_id" name="policy_id" required>
+        <button type="submit">Buscar</button>
+    </form>
+    <div id="user_info">
+        {% if user_info is not none %}
+            {% if user_info %}
+                <h2>Información del Usuario</h2>
+                <p><strong>ID del Cliente:</strong> {{ user_info['client_id'] }}</p>
+                <p><strong>Nombre:</strong> {{ user_info['name'] }}</p>
+                <p><strong>Email:</strong> {{ user_info['email'] }}</p>
+            {% else %}
+                <p>No se encontró usuario para el ID de póliza proporcionado.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
