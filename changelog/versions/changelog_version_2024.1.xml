@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         changelog/dbchangelog-4.24.xsd">
+			<changeSet author="GAC" id="2024.1">				
+				<sqlFile dbms="postgresql"
+						encoding="UTF-8"            
+						path="BASE_DATOS_SQL/030624/ddl_clients_030624.sql"
+						splitStatements="true"
+						stripComments="true"/>			
+				<sqlFile dbms="postgresql"
+						encoding="UTF-8"            
+						path="BASE_DATOS_SQL/030624/ddl_policies_030624.sql"
+						splitStatements="true"
+						stripComments="true"/>			
+				<rollback>
+			<sqlFile path="BASE_DATOS_SQL/030624/rollback_ddl_policies_030624.sql"/>
+            <sqlFile path="BASE_DATOS_SQL/030624/rollback_ddl_clients_030624.sql"/>
+
+				</rollback>
+			</changeSet>
+</databaseChangeLog>

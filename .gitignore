@@ -1,0 +1,9 @@
+#Environment
+.venv/
+.venv/**
+
+#Data files
+*.csv
+
+#Carpeta de datos
+/batchproject/external/data/*

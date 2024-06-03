@@ -1,0 +1,12 @@
+ CREATE SEQUENCE public.client_id_seq
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    START WITH 1;
+
+CREATE TABLE public.clients (
+    id UUID PRIMARY KEY,
+    name VARCHAR(80) NOT NULL,
+    email VARCHAR(120) UNIQUE NOT NULL,
+    role VARCHAR(80) NOT NULL
+);
