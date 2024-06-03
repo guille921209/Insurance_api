@@ -2,10 +2,10 @@ version: '3'
 services:
   postgres:
     image: postgres:latest
-    container_name: TestAPI
+    container_name: InsuranceAPI
     environment:
-      POSTGRES_USER: gaguirrec
-      POSTGRES_PASSWORD: gaguirrec
-      POSTGRES_DB: TestAPIDB
+      POSTGRES_USER: gaguirre
+      POSTGRES_PASSWORD: gaguirre
+      POSTGRES_DB: InsuranceDB
     ports:
       - "5432:5432"
