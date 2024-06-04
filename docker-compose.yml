@@ -2,10 +2,15 @@ version: '3'
 services:
   postgres:
     image: postgres:latest
-    container_name: InsuranceAPI
+    container_name: InsuranceAPI_DB
     environment:
       POSTGRES_USER: gaguirre
       POSTGRES_PASSWORD: gaguirre
       POSTGRES_DB: InsuranceDB
     ports:
       - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

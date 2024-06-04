@@ -3,23 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta de Usuarios</title>
+    <title>User Query</title>
+    <style>
+        .link-container {
+            margin-top: 20px;
+        }
+        .link-container a {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Consulta de Usuarios</h1>
+    <h1>User Query</h1>
+    <p>Name: {{ name }}</p>
+    <p>Role: {{ role }}</p>
+    <p>Get user data filtered by user ID</p>
     <form action="/query_user" method="post">
-        <label for="query_id">Ingrese el ID del cliente:</label>
+        <label for="query_id">Enter the client's ID:</label>
         <input type="text" id="query_id" name="query_id" required>
-        <button type="submit">Consultar</button>
+        <button type="submit">Submit</button>
     </form>
+    <div class="link-container">
+        <a href="{{ url_for('search_user_page', role=role) }}">Get user data filtered by user name</a>
+        {% if role == 'admin' %}
+            <a href="{{ url_for('search_policies_page', name=name, role=role) }}">Get the list of policies linked to a user name</a>
+        {% endif %}
+
+        {% if role == 'admin' %}
+            <a href="{{ url_for('search_user_by_policy_page', name=name, role=role) }}">Get the user linked to a policy number</a>
+        {% endif %}
+    </div>
+    
     <div id="user_info">
         {% if user_info %}
-            <h2>Información del Usuario</h2>
+            <h2>User Information</h2>
             <p><strong>Amount insured:</strong> {{ user_info.amount_insured }}</p>
-            <p><strong>email:</strong> {{ user_info.email }}</p>
+            <p><strong>Email:</strong> {{ user_info.email }}</p>
             <p><strong>Inception date:</strong> {{ user_info.inception_date }}</p>
             <p><strong>Installment payment:</strong> {{ user_info.installment_payment }}</p>
-            {% endif %}
+        {% endif %}
     </div>
 </body>
 </html>

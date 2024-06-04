@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Búsqueda de Usuarios por Nombre</title>
+    <title>Search Users by Name</title>
 </head>
 <body>
-    <h1>Búsqueda de Usuarios por Nombre</h1>
+    <h1>Search Users by Name</h1>
+    <p>Role: {{ role }}</p>
     <form action="/search_user" method="post">
-        <label for="query_name">Ingrese el nombre del usuario:</label>
+        <label for="query_name">Enter the user's name:</label>
         <input type="text" id="query_name" name="query_name" required>
-        <button type="submit">Buscar</button>
+        <button type="submit">Search</button>
     </form>
     <div id="user_info">
         {% if user_info is not none %}
             {% if user_info %}
-                <h2>Información del Usuario</h2>
+                <h2>User Information</h2>
                 <table border="1">
                     <thead>
                         <tr>
@@ -39,7 +40,7 @@
                     </tbody>
                 </table>
             {% else %}
-                <p>No se encontraron usuarios.</p>
+                <p>No users found.</p>
             {% endif %}
         {% endif %}
     </div>

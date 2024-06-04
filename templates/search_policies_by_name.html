@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Búsqueda de Pólizas por Nombre de Usuario</title>
+    <title>Search Policies by User Name</title>
 </head>
 <body>
-    <h1>Búsqueda de Pólizas por Nombre de Usuario</h1>
+    <h1>Search Policies by User Name</h1>
+    <p>Role: {{ role }}</p>
     <form action="/search_policies" method="post">
-        <label for="query_name">Ingrese el nombre del usuario:</label>
+        <label for="query_name">Enter the user's name:</label>
         <input type="text" id="query_name" name="query_name" required>
-        <button type="submit">Buscar</button>
+        <button type="submit">Search</button>
     </form>
     <div id="policies_info">
         {% if policies_info is not none %}
             {% if policies_info %}
-                <h2>Lista de Pólizas</h2>
+                <h2>Policy List</h2>
                 <table border="1">
                     <thead>
                         <tr>
@@ -39,7 +40,7 @@
                     </tbody>
                 </table>
             {% else %}
-                <p>No se encontraron pólizas.</p>
+                <p>No policies found.</p>
             {% endif %}
         {% endif %}
     </div>
